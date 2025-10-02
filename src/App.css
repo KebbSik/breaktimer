@@ -1,15 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Pacifico&display=swap");
 
-/* -------------------------------- Light mode  */
-#root {
-  height: 100%;
-}
-.app-wrapper {
-  /* background-color: red; */
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-}
 :root {
   --color-primary: #f2f2f2;
   --color-accent: #2d4085;
@@ -17,7 +7,6 @@
   --bg-image: url("./assets/bg_light.svg");
   --box-shadow-color: rgba(85, 85, 85, 0.8);
   --box-bg: rgba(106, 106, 117, 0.232);
-  /* --box-bg: rgba(106, 106, 117, 0.232); */
   --text-reverse: #ffffff;
 }
 
@@ -28,37 +17,75 @@
   --box-shadow-color: rgba(255, 255, 255, 0.3);
   --text: #ffffff;
   --box-bg: rgba(0, 0, 0, 0.5);
-  /* --box-bg: rgba(0, 0, 0, 0.5); */
   --bg-image: url("./assets/bg_dark.svg");
   --text-reverse: #000000;
 }
-
+/* -------------------------------- General */
 * {
   box-sizing: border-box;
 }
 
+html {
+  font-size: 16px;
+  scroll-behavior: smooth;
+}
+
 body {
+  margin: 0;
   font-family: "Inter", sans-serif;
   font-optical-sizing: auto;
   font-weight: 400;
   font-style: normal;
-  font-size: 2rem;
-  margin: 0;
-  /* padding: 0 2rem; */
+  font-size: 1.5rem;
+  line-height: 1.5;
   background-color: var(--color-primary);
   background-image: var(--bg-image);
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
   height: 100vh;
-  /* width: 100vw; */
   color: var(--text);
 }
-
-.flex-center {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+h1 {
+  font-size: 2.5rem;
+  margin: 1rem 0;
+}
+h2 {
+  font-size: 2rem;
+}
+p {
+  margin: 1rem 0;
+}
+.text-accent {
+  color: var(--color-accent);
+  font-weight: 600;
+}
+@media (max-width: 768px) {
+  body {
+    font-size: 1.2rem;
+  }
+  h1 {
+    font-size: 2rem;
+    margin: 0.5rem 0;
+  }
+  h2 {
+    font-size: 1.5rem;
+  }
+}
+@media (max-width: 576px) {
+  body {
+    font-size: 1rem;
+  }
+  h1 {
+    font-size: 1.5rem;
+    margin: 0.25rem 0;
+  }
+  h2 {
+    font-size: 1rem;
+  }
+  p {
+    margin: 0.25rem 0;
+  }
 }
 /* -------------------------------- Loader  */
 .loader-container {
@@ -72,16 +99,23 @@ body {
   align-items: center;
 }
 
-/* -------------------------------- Nav  */
+/* -------------------------------- Header  */
+/* -------------------------------- Navbar  */
+header {
+  padding: 1rem 2rem;
+  width: 100%;
+}
 nav {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 1rem 2rem;
-  margin-bottom: 3rem;
 }
 
-.navbar-left {
+.logo {
+  font-family: "Pacifico", cursive;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 3rem;
 }
 
 .navbar-right {
@@ -94,83 +128,64 @@ nav {
   justify-content: space-between;
   align-items: "center";
   gap: 1rem;
-  /* padding-right: 10rem; */
-  /* border: 1px solid red; */
   border-radius: 50px;
   padding: 0.5rem 2rem;
   background-color: var(--box-bg);
-  backdrop-filter: blur(10px); /* efekt rozmycia */
-  -webkit-backdrop-filter: blur(10px); /* dla Safari */
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px); /* Safari */
 }
 
-.btn-theme-group {
+.nav-theme-btn {
   padding: 0.5rem;
   border-radius: 50%;
 }
-
-.logo {
-  font-family: "Pacifico", cursive;
-  font-weight: 400;
-  font-style: normal;
+@media (max-width: 768px) {
+  .logo {
+    font-size: 2.5rem;
+  }
+  .navbar-group {
+    padding: 0.3rem 1rem;
+  }
+  .nav-theme-btn {
+    padding: 0.25rem;
+  }
 }
 
-.logo > span {
-  font-size: 3rem;
+@media (max-width: 576px) {
+  nav {
+    flex-direction: column;
+    gap: 1rem;
+    justify-content: center;
+  }
+}
+/* -------------------------------- Main  */
+main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 2rem 0;
 }
 
-/* -------------------------------- Switch  */
-.switch {
-  position: relative;
-  height: 1.5rem;
-  width: 3rem;
-  cursor: pointer;
-  appearance: none;
-  -webkit-appearance: none;
-  border-radius: 9999px;
-  background-color: rgba(100, 116, 139, 0.377);
-  transition: all 0.3s ease;
-}
-
-.switch:checked {
-  background-color: var(--color-accent);
-}
-
-.switch::before {
-  position: absolute;
-  content: "";
-  left: calc(1.5rem - 1.6rem);
-  top: calc(1.5rem - 1.6rem);
-  display: block;
-  height: 1.6rem;
-  width: 1.6rem;
-  cursor: pointer;
-  border: 1px solid rgba(100, 116, 139, 0.527);
-  border-radius: 9999px;
-  background-color: rgba(255, 255, 255, 1);
-  box-shadow: 0 3px 10px rgba(100, 116, 139, 0.327);
-  transition: all 0.3s ease;
-}
-
-.switch:checked:before {
-  transform: translateX(100%);
-  border-color: var(--color-accent);
+@media (max-width: 576px) {
+  main {
+    margin: 1rem 0;
+  }
 }
 /* -------------------------------- Form  */
 .input-container {
   border-radius: 20px;
   padding: 2rem;
-  /* height: 50vh; */
-  max-height: 60%;
-  min-width: 50%;
+  min-height: 27rem;
+  min-width: 33rem;
+  max-width: 60rem;
   background: var(--box-bg);
-  /* margin: auto; */
-  backdrop-filter: blur(10px); /* efekt rozmycia */
-  -webkit-backdrop-filter: blur(10px); /* dla Safari */
   flex-grow: 1;
   display: flex;
   justify-content: center;
   align-items: center;
   align-self: center;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px); /* Safari */
 }
 
 form {
@@ -181,19 +196,14 @@ form {
 }
 
 form > .field {
-  /* border: 1px solid red; */
   display: grid;
-  grid-template-columns: 1fr 2fr; /* 1/3 szerokości label, 2/3 input */
+  grid-template-columns: 1fr 2fr;
   align-items: center;
-  gap: 1rem; /* odstęp między label a input */
+  gap: 1rem;
 }
 
 .field > label {
-  justify-self: end; /* trzyma label przy lewej */
-}
-
-.field > .input-field {
-  justify-self: stretch;
+  justify-self: end;
 }
 
 .submit-container {
@@ -201,6 +211,29 @@ form > .field {
   justify-content: center;
 }
 
+@media (max-width: 768px) {
+  .input-container {
+    /* padding: 1rem; */
+    min-height: 25rem;
+    min-width: 33rem;
+    max-width: 60rem;
+  }
+}
+
+@media (max-width: 576px) {
+  .input-container {
+    /* min-height: 25rem; */
+    min-width: 25rem;
+    /* max-width: 20rem; */
+    /* padding: 2rem; */
+  }
+  form > .field {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+}
+/* -------------------------------- Buttons  */
 .btn {
   padding: 0.5rem;
   border-radius: 20px;
@@ -215,12 +248,10 @@ form > .field {
 
 .btn:hover,
 .btn-theme:hover {
-  /* text-decoration: underline; */
-  transform: scale(1.01);
   color: var(--color-accent);
 }
 .btn:active {
-  transform: scale(0.99);
+  transform: scale(0.98);
 }
 .btn-theme {
   cursor: pointer;
@@ -259,29 +290,45 @@ form > .field {
 }
 
 .btn-cancel:hover {
-  /* transform: scale(1.05) */
   color: rgb(255, 93, 93);
 }
 .btn-cancel:active {
   transform: scale(0.98);
 }
-/*  text input */
+@media (max-width: 768px) {
+  .btn {
+    font-size: 1rem;
+    padding: 0.3rem;
+  }
+  .btn-theme {
+    font-size: 1.6rem;
+    padding: 0.1rem;
+  }
+  .btn-submit {
+    font-size: 1rem;
+  }
+}
+
+/* -------------------------------- Text input  */
 .text-input {
   border-radius: 20px;
   border: 1px solid #c0c0c0;
-  outline: 0 !important;
+  outline: 0;
   box-sizing: border-box;
   padding: 12px 15px;
   width: 100%;
+  min-width: 15rem;
+}
+.text-input:focus {
+  border: 1px solid var(--color-accent);
 }
 
-/* bell input */
-
+/* -------------------------------- Bell input  */
 .radio-inputs {
   position: relative;
   display: flex;
   flex-wrap: wrap;
-  border-radius: 0.5rem;
+  border-radius: 1rem;
   background-color: #eee;
   box-sizing: border-box;
   box-shadow: 0 0 0px 1px rgba(0, 0, 0, 0.06);
@@ -304,10 +351,11 @@ form > .field {
   cursor: pointer;
   align-items: center;
   justify-content: center;
-  border-radius: 0.5rem;
+  border-radius: 1rem;
   border: none;
   padding: 0.5rem 0;
-  color: rgba(51, 65, 85, 1);
+  color: black;
+
   transition: all 0.15s ease-in-out;
 }
 
@@ -323,14 +371,9 @@ form > .field {
   gap: 2rem;
   align-items: center;
 }
-.phase-display {
-  /* font-size: 3rem; */
-  margin-bottom: 1rem;
-}
 
 .time-display {
   font-size: 2rem;
-  /* border: 5px solid var(--color-accent); */
   padding: 1rem;
   border-radius: 50px;
   display: flex;
@@ -342,7 +385,6 @@ form > .field {
 }
 
 .time-display-controls {
-  /* margin-top: 3rem; */
   display: flex;
   gap: 1.5rem;
   justify-content: center;
@@ -352,7 +394,7 @@ form > .field {
   font-size: 2rem;
   padding: 0;
   display: flex;
-  align-items: center; /* pion */
+  align-items: center;
   justify-content: center;
 }
 
@@ -362,7 +404,7 @@ form > .field {
   font-size: 1.5rem;
 }
 
-/* Time Picker style */
+/* -------------------------------- Custom time picker style  */
 .custom-dropdown {
   position: relative;
   width: 50px;
@@ -437,7 +479,7 @@ form > .field {
   font-style: italic;
 }
 
-/* Scrollbar Chrome/Edge/Safari */
+/* scrollbar for Chrome/Edge/Safari */
 .dropdown-options::-webkit-scrollbar {
   width: 6px;
 }
@@ -451,41 +493,41 @@ form > .field {
   background: #555;
 }
 
-/* Scrollbar Firefox */
+/* scrollbar for Firefox */
 .dropdown-options {
   scrollbar-width: thin;
   scrollbar-color: #888 #f1f1f1;
 }
 
+/* -------------------------------- Status message  */
 .status-message {
-  max-width: 400px; /* np. szerokość komunikatu */
+  max-width: 400px;
   padding: 1rem;
   border-radius: 8px;
 }
 
 .note {
-  max-height: 150px; /* ograniczenie wysokości */
-  overflow-y: auto; /* scroll przy nadmiarze tekstu */
-  word-wrap: break-word; /* zawijanie długich słów */
-  white-space: pre-wrap; /* zachowanie enterów w tekście */
+  max-height: 150px;
+  overflow-y: auto;
+  word-wrap: break-word;
+  white-space: pre-wrap;
   margin: 0.5rem 0;
   font-size: 1rem;
-  padding-right: 4px; /* dla scrolla */
+  padding-right: 4px; /* necessary for scroll */
 }
 
-/* Scrollbar Chrome/Edge/Safari */
+/* scrollbar for Chrome/Edge/Safari */
 .note::-webkit-scrollbar {
   width: 6px;
 }
 
-/* Scrollbar Firefox */
+/* scrollbar for Firefox */
 .note {
   scrollbar-width: thin;
   scrollbar-color: var(--color-accent) var(--box-bg);
 }
 
-/* MODAL STYLES */
-
+/* -------------------------------- Modal  */
 .modal-overlay {
   position: fixed;
   inset: 0;
@@ -541,3 +583,41 @@ form > .field {
   display: flex;
   gap: 0.5rem;
 }
+
+/* -------------------------------- Switch  */
+/* .switch {
+  position: relative;
+  height: 1.5rem;
+  width: 3rem;
+  cursor: pointer;
+  appearance: none;
+  -webkit-appearance: none;
+  border-radius: 9999px;
+  background-color: rgba(100, 116, 139, 0.377);
+  transition: all 0.3s ease;
+}
+
+.switch:checked {
+  background-color: var(--color-accent);
+}
+
+.switch::before {
+  position: absolute;
+  content: "";
+  left: calc(1.5rem - 1.6rem);
+  top: calc(1.5rem - 1.6rem);
+  display: block;
+  height: 1.6rem;
+  width: 1.6rem;
+  cursor: pointer;
+  border: 1px solid rgba(100, 116, 139, 0.527);
+  border-radius: 9999px;
+  background-color: rgba(255, 255, 255, 1);
+  box-shadow: 0 3px 10px rgba(100, 116, 139, 0.327);
+  transition: all 0.3s ease;
+}
+
+.switch:checked:before {
+  transform: translateX(100%);
+  border-color: var(--color-accent);
+} */

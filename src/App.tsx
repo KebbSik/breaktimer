@@ -6,11 +6,20 @@ import Navbar from "./components/Navbar";
 function App() {
   return (
     <>
-      <div className="app-wrapper">
-        <Loader />
+      <Loader />
+      <header>
         <Navbar />
+      </header>
+      <main>
+        <h1>
+          Stay <span className="text-accent">productive</span> with smart breaks
+        </h1>
+        <p>
+          Manage your <span className="text-accent">work</span> and{" "}
+          <span className="text-accent">rest</span> with customizable timers.
+        </p>
         <BreakApp />
-      </div>
+      </main>
     </>
   );
 }

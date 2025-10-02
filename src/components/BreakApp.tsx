@@ -32,7 +32,7 @@ const BreakApp: React.FC = () => {
     workTime: "00:00:10",
     breakTime: "00:00:10",
     bell: "Classic",
-    notification: true,
+    // notification: true,
     note: "",
   });
 
@@ -64,7 +64,7 @@ const BreakApp: React.FC = () => {
   const skipPhase = () => {
     setIsRunning(false);
     playBell();
-    if (formData.notification) window.focus();
+    // if (formData.notification) window.focus();
 
     if (phase === "work") {
       setMessage("Time for a break !");
@@ -182,7 +182,9 @@ const BreakApp: React.FC = () => {
             exit={{ opacity: 0, y: -10 }}
           >
             <h2>{message}</h2>
-            <p className="note">{formData.note}</p>
+            {formData.note.length > 0 && (
+              <p className="note">{formData.note}</p>
+            )}
             <button onClick={handleMessageConfirm} className="btn btn-submit">
               {phase === "work" ? "Start working" : "Let’s rest"}
             </button>

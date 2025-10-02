@@ -9,18 +9,16 @@ const Navbar = () => {
   return (
     <>
       <nav>
-        <div className="navbar-left">
-          <div className="logo flex-center">
-            <span>BreakTimer</span>
-          </div>
+        <div className="logo">
+          <span>BreakTimer</span>
         </div>
         <div className="navbar-right">
-          <div className="navbar-group btn-theme-group">
+          <div className="navbar-group nav-theme-btn">
             <ModeToggler />
           </div>
           <div className="navbar-group">
             <button className="btn" onClick={() => setHowItWorksOpen(true)}>
-              How it Works ?
+              How to use?
             </button>
             <button className="btn" onClick={() => setReadMeOpen(true)}>
               ReadMe
@@ -55,7 +53,7 @@ const Navbar = () => {
             <strong>Pause</strong> or <strong>skip</strong> sessions anytime.
           </li>
           <li>
-            Optional <strong>notes and notifications</strong> keep you on track.
+            Optional <strong>notes</strong> keep you on track.
           </li>
         </ul>
 
@@ -73,7 +71,26 @@ const Navbar = () => {
         onClose={() => setReadMeOpen(false)}
         title="ReadMe"
       >
-        <p>Readme Content</p>
+        <p>
+          To jest prosta aplikacja <strong>Break Timer</strong>, która pomaga w
+          organizacji pracy i przerw.
+        </p>
+
+        <p>
+          Choć pierwotnie plan zakładał stworzenie jej w{" "}
+          <strong>Angularze</strong>, pierwszą wersję zrobiłem w{" "}
+          <strong>React</strong>. Dzięki temu mogłem szybciej uruchomić
+          działającą aplikację i przetestować pomysł. Można powiedzieć, że to
+          takie „kupienie czasu” — bo do rozmowy rekrutacyjnej (około{" "}
+          <strong>16 października</strong>) przygotuję też wersję w Angularze.
+        </p>
+
+        <p>
+          Jak wspomniano na webinarze, znajomość zarówno <strong>React</strong>,
+          jak i <strong>Angulara</strong> jest atutem. Ten projekt pokazuje moje
+          podejście do budowania funkcjonalnych rozwiązań i chęć poznawania
+          różnych technologii.
+        </p>
       </Modal>
     </>
   );

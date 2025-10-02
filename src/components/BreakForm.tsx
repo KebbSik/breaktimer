@@ -5,7 +5,7 @@ type FormData = {
   workTime: string;
   breakTime: string;
   bell: string;
-  notification: boolean;
+  // notification: boolean;
   note: string;
 };
 
@@ -42,9 +42,9 @@ const BreakForm: React.FC<Props> = ({ formData, setFormData, onSubmit }) => {
     }
   };
 
-  const handleToggle = () => {
-    setFormData((prev) => ({ ...prev, notification: !prev.notification }));
-  };
+  // const handleToggle = () => {
+  //   setFormData((prev) => ({ ...prev, notification: !prev.notification }));
+  // };
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -79,25 +79,23 @@ const BreakForm: React.FC<Props> = ({ formData, setFormData, onSubmit }) => {
 
       <div className="field">
         <label htmlFor="bell">Bell sound:</label>
-        <div className="input-field">
-          <div className="radio-inputs">
-            {bells.map((b) => (
-              <label key={b} className="radio">
-                <input
-                  type="radio"
-                  name="bell"
-                  value={b}
-                  checked={formData.bell === b}
-                  onChange={handleChange}
-                />
-                <span className="name">{b}</span>
-              </label>
-            ))}
-          </div>
+        <div className="radio-inputs">
+          {bells.map((b) => (
+            <label key={b} className="radio">
+              <input
+                type="radio"
+                name="bell"
+                value={b}
+                checked={formData.bell === b}
+                onChange={handleChange}
+              />
+              <span className="name">{b}</span>
+            </label>
+          ))}
         </div>
       </div>
 
-      <div className="field">
+      {/* <div className="field">
         <label htmlFor="notification">Notifications:</label>
         <div className="input-field">
           <input
@@ -108,7 +106,7 @@ const BreakForm: React.FC<Props> = ({ formData, setFormData, onSubmit }) => {
             onChange={handleToggle}
           />
         </div>
-      </div>
+      </div> */}
 
       <div className="field">
         <label htmlFor="note">Notes:</label>

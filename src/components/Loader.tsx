@@ -6,7 +6,6 @@ const Loader = () => {
       className="loader-container"
       animate={{
         opacity: 0,
-
         display: "none",
       }}
       transition={{ duration: 1.45, delay: 3 }}

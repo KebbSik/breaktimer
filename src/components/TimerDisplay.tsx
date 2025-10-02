@@ -26,9 +26,8 @@ const TimerDisplay: React.FC<TimerDisplayProps> = ({
 
   return (
     <div className="timer-container">
-      <div className="phase-display">
-        {phase === "work" ? "Work Time" : "Break Time"}
-      </div>
+      <h2>{phase === "work" ? "Work Time" : "Break Time"}</h2>
+
       <div className="time-display">{formatTime(timeLeft)}</div>
 
       {/* Custom progress bar */}
