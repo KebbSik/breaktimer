@@ -43,7 +43,8 @@ body {
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
-  height: 100vh;
+  min-height: 100vh;
+  height: 100%;
   color: var(--text);
 }
 h1 {
@@ -52,6 +53,7 @@ h1 {
 }
 h2 {
   font-size: 2rem;
+  margin: 1rem 0;
 }
 p {
   margin: 1rem 0;
@@ -175,9 +177,11 @@ main {
 .input-container {
   border-radius: 20px;
   padding: 2rem;
-  min-height: 27rem;
+  min-height: 20rem;
+  max-height: 20rem;
   min-width: 33rem;
   max-width: 60rem;
+
   background: var(--box-bg);
   flex-grow: 1;
   display: flex;
@@ -368,7 +372,7 @@ form > .field {
 .timer-container {
   display: flex;
   flex-direction: column;
-  gap: 2rem;
+  gap: 1rem;
   align-items: center;
 }
 
@@ -399,9 +403,15 @@ form > .field {
 }
 
 .status-message {
-  margin-top: 1.05rem;
   text-align: center;
   font-size: 1.5rem;
+}
+
+@media (max-width: 576px) {
+  .time-display {
+    font-size: 1.5rem;
+    width: 15rem;
+  }
 }
 
 /* -------------------------------- Custom time picker style  */
@@ -507,7 +517,7 @@ form > .field {
 }
 
 .note {
-  max-height: 150px;
+  max-height: 120px;
   overflow-y: auto;
   word-wrap: break-word;
   white-space: pre-wrap;
